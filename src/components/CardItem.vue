@@ -20,16 +20,19 @@
 </template>
 
 <style lang="scss">
+@use '../styles/variables' as *;
 
     .card{
         display: flex;
         flex-direction: column;
 
-        width: calc(100% / 5 - 40px / 5 * 4);
+        width: calc(100% / 5 - $cardGap / 5 * 4);
         text-align: center;
         background-color: #D48F38;
 
         h3{
+            text-transform: uppercase;
+            font-size: 16px;
             color: white;
             padding: 25px 0;
         }

@@ -43,12 +43,13 @@
 </template>
 
 <style lang="scss">
+@use '../styles/variables' as *;
 
     .container{
         max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
-        padding: 34px 0;
+        padding: 34px 0 0;
 
         #card-archetype {
             width: 20%;
@@ -66,13 +67,14 @@
 
         .card-container {
             width: 100%;
-            padding: 72px;
+            padding: 72px 72px 10px 72px;
             background-color: white;
 
             .cards-inner{
                 display: flex;
                 flex-wrap: wrap;
-                gap: 40px;
+                row-gap: 25px;
+                column-gap: $cardGap;
             }
         }
 
