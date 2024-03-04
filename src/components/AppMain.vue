@@ -32,6 +32,10 @@
         
         <div class="card-container">
             <AppPagination></AppPagination>
+
+            <div class="cards-inner">
+                <CardItem v-for="currentCard in store.cards" :card="currentCard"></CardItem>
+            </div>
             
         </div>
 
@@ -64,6 +68,11 @@
             width: 100%;
             padding: 72px;
             background-color: white;
+
+            .cards-inner{
+                display: flex;
+                
+            }
         }
 
     }
