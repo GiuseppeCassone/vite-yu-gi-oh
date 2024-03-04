@@ -27,7 +27,11 @@
 <template>
     <div class="container">
         <div id="card-archetype">
-            <div class="btn btn-light">Alien</div>
+            <select class="btn btn-light">
+                <option value="Alien">Alien</option>
+                <option value="Noble Knight">Noble Knight</option>
+                <option value="Infernoble Arms">Infernoble Arms</option>
+            </select>
         </div>
         
         <div class="card-container">
