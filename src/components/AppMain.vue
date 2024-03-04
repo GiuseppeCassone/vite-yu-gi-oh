@@ -71,7 +71,8 @@
 
             .cards-inner{
                 display: flex;
-                
+                flex-wrap: wrap;
+                gap: 40px;
             }
         }
 
