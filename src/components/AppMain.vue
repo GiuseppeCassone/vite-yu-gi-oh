@@ -1,7 +1,9 @@
 <script>
+    import axios from 'axios';
 
     import AppPagination from './AppPagination.vue';
     import CardItem from './CardItem.vue';
+    import AppSelect from './AppSelect.vue';
 
     import {store} from '../store.js';
 
@@ -11,14 +13,27 @@
 
         components: {
             AppPagination,
-            CardItem
+            CardItem,
+            AppSelect
         },
 
         data() {
             return {
                 store,
             }
-        }
+        },
+
+        methods: {
+
+            searchArchetype() {
+                axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php').then(res => {
+                    console.log(res.data);
+                    this.store.archetype = res.data;
+                })
+            }
+        },
+
+
 
         
     }
@@ -27,11 +42,7 @@
 <template>
     <div class="container">
         <div id="card-archetype">
-            <select class="btn btn-light">
-                <option value="Alien">Alien</option>
-                <option value="Noble Knight">Noble Knight</option>
-                <option value="Infernoble Arms">Infernoble Arms</option>
-            </select>
+            <AppSelect @search="searchArchetype()"></AppSelect>
         </div>
         
         <div class="card-container">
@@ -59,14 +70,6 @@
             width: 20%;
             padding-left: 10px;
             margin-bottom: 34px;
-
-
-            .btn{
-                padding: 12px 10px;
-                border-radius: 12px;
-                
-                background-color: white;
-            }
         }
 
         .card-container {
