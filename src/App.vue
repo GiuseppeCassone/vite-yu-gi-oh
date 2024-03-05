@@ -37,7 +37,7 @@
 </script>
 
 <template>
-  <AppLoader></AppLoader>
+  <AppLoader v-if="loading"></AppLoader>
   <AppNav></AppNav>
   <AppMain></AppMain>
 </template>
