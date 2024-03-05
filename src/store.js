@@ -6,4 +6,6 @@ export const store = reactive({
 
     archetype: [],
 
+    selectSearch: '',
+
 });

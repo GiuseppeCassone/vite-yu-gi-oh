@@ -4,6 +4,7 @@
   import { store } from './store.js';
 
   import AppNav from './components/AppNav.vue';
+  import AppSelect from './components/AppSelect.vue';
   import AppMain from './components/AppMain.vue';
   import AppLoader from './components/AppLoader.vue';
 
@@ -25,9 +26,18 @@
           this.loading = false;
       })
     },
+
+    methods: {
+      searchCardArchetype() {
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype=' + this.store.selectSearch).then(res => {
+          this.store.cards = res.data.data;
+      })
+      }
+    },
       
     components: {
       AppNav,
+      AppSelect,
       AppMain,
       AppLoader,
     },
@@ -38,6 +48,7 @@
 <template>
   <AppLoader v-if="loading"></AppLoader>
   <AppNav></AppNav>
+  <AppSelect @search="searchCardArchetype()"></AppSelect>
   <AppMain></AppMain>
 </template>
 

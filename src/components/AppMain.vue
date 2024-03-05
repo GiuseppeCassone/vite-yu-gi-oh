@@ -3,7 +3,6 @@
 
     import AppPagination from './AppPagination.vue';
     import CardItem from './CardItem.vue';
-    import AppSelect from './AppSelect.vue';
 
     import {store} from '../store.js';
 
@@ -14,7 +13,6 @@
         components: {
             AppPagination,
             CardItem,
-            AppSelect
         },
 
         data() {
@@ -33,6 +31,10 @@
             }
         },
 
+        created() {
+            this.searchArchetype()
+        }
+
 
 
         
@@ -41,9 +43,6 @@
 
 <template>
     <div class="container">
-        <div id="card-archetype">
-            <AppSelect @search="searchArchetype()"></AppSelect>
-        </div>
         
         <div class="card-container">
             <AppPagination></AppPagination>
@@ -65,12 +64,6 @@
         margin-left: auto;
         margin-right: auto;
         padding: 34px 0 0;
-
-        #card-archetype {
-            width: 20%;
-            padding-left: 10px;
-            margin-bottom: 34px;
-        }
 
         .card-container {
             width: 100%;
